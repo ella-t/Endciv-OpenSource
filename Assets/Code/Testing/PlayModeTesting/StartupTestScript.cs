@@ -16,15 +16,12 @@ namespace Tests
             SceneManager.LoadScene(0);
         }
 
-        // A Test behaves as an ordinary method
         [Test, Order(1)]
         public void LoadMainScene()
         {
             Debug.Log("Loading main scene");
         }
 
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
         [UnityTest, Order(2)]
         public IEnumerator WaitForMainMenu()
         {
@@ -34,8 +31,10 @@ namespace Tests
         [Test, Order(3)]
         public void StartNewGame()
         {
-            GameObject menuObject = GameObject.FindGameObjectWithTag("MainMenu");
+            GameObject menuObject = GameObject.FindGameObjectWithTag("MainCanvas");
+            Assert.IsNotNull(menuObject);
             ScenarioController scenario = menuObject.GetComponentInChildren<ScenarioController>(true);
+            Assert.IsNotNull(scenario);
             scenario.OnStartGame();
         }
 

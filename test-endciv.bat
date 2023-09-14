@@ -1,0 +1,1 @@
+D:\program_files\Unity\2019.4.26f1\Editor\Unity.exe -batchmode -projectPath "D:\work\unity projects\Endciv-OpenSource" -runTests -testResults playmodetests.xml -testPlatform playmode
